@@ -125,6 +125,11 @@ export const MODEL_PROVIDER_CONFIG = {
     className: "ChatPerplexity",
     hasCircularDependency: true,
   },
+  aibadgr: {
+    package: "@langchain/community/chat_models/aibadgr",
+    className: "ChatAIBadgr",
+    hasCircularDependency: true,
+  },
 } as const;
 
 const SUPPORTED_PROVIDERS = Object.keys(
@@ -698,6 +703,7 @@ export async function initChatModel<
  *   - cerebras (@langchain/cerebras)
  *   - deepseek (@langchain/deepseek)
  *   - xai (@langchain/xai)
+ *   - aibadgr (@langchain/community/chat_models/aibadgr)
  * @param {string[] | "any"} [fields.configurableFields] - Which model parameters are configurable:
  *   - undefined: No configurable fields.
  *   - "any": All fields are configurable. (See Security Note in description)

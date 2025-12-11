@@ -120,6 +120,11 @@ export const MODEL_PROVIDER_CONFIG = {
     className: "ChatPerplexity",
     hasCircularDependency: true,
   },
+  aibadgr: {
+    package: "@langchain/community/chat_models/aibadgr",
+    className: "ChatAIBadgr",
+    hasCircularDependency: true,
+  },
 } as const;
 
 const SUPPORTED_PROVIDERS = Object.keys(
