@@ -21,7 +21,7 @@ type AIBadgrUnsupportedCallOptions = "functions" | "function_call";
 
 export interface ChatAIBadgrCallOptions
   extends Omit<ChatOpenAICallOptions, AIBadgrUnsupportedCallOptions> {
-  response_format: {
+  response_format?: {
     type: "json_object";
     schema: Record<string, unknown>;
   };
@@ -382,10 +382,6 @@ export class ChatAIBadgr extends ChatOpenAICompletions<ChatAIBadgrCallOptions> {
     delete request.presence_penalty;
     delete request.logit_bias;
     delete request.functions;
-
-    if (request.stream === true) {
-      return super.completionWithRetry(request, options);
-    }
 
     return super.completionWithRetry(request, options);
   }
