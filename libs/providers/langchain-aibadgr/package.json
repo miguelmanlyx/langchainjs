@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git@github.com:langchain-ai/langchainjs.git"
   },
-  "homepage": "https://github.com/langchain-ai/langchainjs/tree/main/libs/langchain-aibadgr",
+  "homepage": "https://github.com/langchain-ai/langchainjs/tree/main/libs/providers/langchain-aibadgr",
   "scripts": {
     "build": "turbo build:compile --filter @langchain/aibadgr --output-logs new-only",
     "build:compile": "tsdown",
