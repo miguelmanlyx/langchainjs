@@ -1,7 +1,7 @@
 import type { ModelProfile } from "@langchain/core/language_models/profile";
 
 const PROFILES: Record<string, ModelProfile> = {
-  "basic": {
+  basic: {
     maxInputTokens: 8192,
     imageInputs: false,
     audioInputs: false,
@@ -15,7 +15,7 @@ const PROFILES: Record<string, ModelProfile> = {
     toolCalling: true,
     structuredOutput: false,
   },
-  "normal": {
+  normal: {
     maxInputTokens: 16384,
     imageInputs: false,
     audioInputs: false,
@@ -29,7 +29,7 @@ const PROFILES: Record<string, ModelProfile> = {
     toolCalling: true,
     structuredOutput: false,
   },
-  "premium": {
+  premium: {
     maxInputTokens: 32768,
     imageInputs: false,
     audioInputs: false,
