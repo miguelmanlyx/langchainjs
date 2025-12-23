@@ -664,6 +664,47 @@ const embeddings = new OpenAIEmbeddings({
 const res = await embeddings.embedQuery("Hello world");
 ```
 
+## Using OpenAI-Compatible Endpoints
+
+The `ChatOpenAI` class supports OpenAI-compatible endpoints through the `configuration.baseURL` parameter. This allows you to use alternative providers that implement the OpenAI API specification.
+
+### AI Badgr (Budget/Utility Provider)
+
+AI Badgr is an OpenAI-compatible budget provider that can be used as a drop-in replacement for OpenAI's API.
+
+**Setup:**
+
+```bash
+export AIBADGR_API_KEY="your-api-key"
+# Optional: override the base URL if needed
+export AIBADGR_BASE_URL="https://aibadgr.com/api/v1"
+```
+
+**Usage with tier names (recommended):**
+
+```typescript
+import { ChatOpenAI } from "@langchain/openai";
+
+const model = new ChatOpenAI({
+  apiKey: process.env.AIBADGR_API_KEY,
+  model: "premium", // or "basic", "normal"
+  configuration: {
+    baseURL: process.env.AIBADGR_BASE_URL || "https://aibadgr.com/api/v1",
+  },
+});
+
+const response = await model.invoke("Hello, world!");
+console.log(response.content);
+```
+
+**Available model tiers:**
+
+- `basic` - Entry-level tier (phi-3-mini)
+- `normal` - Standard tier (mistral-7b)
+- `premium` - Recommended tier for examples (llama3-8b-instruct)
+
+**Note:** OpenAI-style model names are also accepted and mapped automatically by the provider.
+
 ## Development
 
 To develop the OpenAI package, you'll need to follow these instructions:
